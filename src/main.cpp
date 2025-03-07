@@ -10,5 +10,7 @@ int main()
 
     TaskScheduler(1);
 
+    std::cout << "End Task Scheduler\n";
+
     return 0;
 }
