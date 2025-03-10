@@ -10,7 +10,8 @@ TaskScheduler::TaskScheduler(const int NumTasks)
 {
     for (int i = 0; i < NumTasks; ++i)
     {
-        std::function<void*()> Operation = std::bind(&TaskScheduler::TestFunction, this);
+        const std::function<void*()> Operation = std::bind(&TaskScheduler::TestFunction, this);
+
         std::thread Operator(Operation);
 
 	// Threads are not copyable, only moveble
@@ -32,7 +33,8 @@ TaskScheduler::~TaskScheduler()
 
 void* TaskScheduler::TestFunction() 
 {
-    std::cout << "Test\n";
+	// Prints in integer format the current thread id, to demonstrate multithreading execution
+	std::cout << "Test_" << std::hash<std::thread::id>{}(std::this_thread::get_id()) << "\n";
 
     return nullptr;
 }

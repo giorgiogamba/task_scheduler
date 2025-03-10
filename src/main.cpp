@@ -8,7 +8,7 @@ int main()
 {
     std::cout << "Task Scheduler\n";
 
-    TaskScheduler(1);
+    TaskScheduler(3);
 
     std::cout << "End Task Scheduler\n";
 
