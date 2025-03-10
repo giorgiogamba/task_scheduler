@@ -13,14 +13,21 @@ TaskScheduler::TaskScheduler(const int NumTasks)
         std::function<void*()> Operation = std::bind(&TaskScheduler::TestFunction, this);
         std::thread Operator(Operation);
 
-        // Makes the main thread wait until the Operator thread is completed
-        Operator.join();
+	// Threads are not copyable, only moveble
+        Operators.emplace(Operator.get_id(), std::move(Operator));
     }
 }
 
 TaskScheduler::~TaskScheduler()
 {
-    // joins running operators
+    // Makes all the running threads finish before closing the object
+	for (auto it = Operators.begin(); it != Operators.end(); ++it)
+	{
+		if (it->second.joinable())
+		{
+			it->second.join();
+		}
+	}
 }
 
 void* TaskScheduler::TestFunction() 
@@ -29,3 +36,5 @@ void* TaskScheduler::TestFunction()
 
     return nullptr;
 }
+
+
