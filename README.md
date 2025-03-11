@@ -12,8 +12,10 @@ This project contains what I learnt.
 In order to build and run the project you will need a C++ compiler, like for example g++
 
 ### UNIX
-`git clone < url of the github folder >
-cd task_scheduler
-g++ -std=c++17 -I src/TaskScheduler.hpp src/TaskScheduler.cpp src/main.cpp -o main.out`
+```
+git clone < url of the github folder >
+cd task_scheduler`
+g++ -std=c++17 -I src/TaskScheduler.hpp src/TaskScheduler.cpp src/main.cpp -o main.out
+```
 
 During execution, some messages will be printed in terminal
