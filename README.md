@@ -13,9 +13,18 @@ In order to build and run the project you will need a C++ compiler, like for exa
 
 ### UNIX
 ```
-git clone < url of the github folder >
-cd task_scheduler`
-g++ -std=c++17 -I src/TaskScheduler.hpp src/TaskScheduler.cpp src/main.cpp -o main.out
+$ git clone < url of the github folder >
+$ cd task_scheduler`
+$ g++ -std=c++17 -I src/TaskScheduler.hpp src/TaskScheduler.cpp src/main.cpp -o main.out
+```
+
+### WINDOWS
+If not using gcc but Visual Studio compiler instead, write:
+
+```
+$ git clone < url of the github folder >
+$ cd task_scheduler`
+$ cl src\TaskScheduler.cpp src\main.cpp
 ```
 
 During execution, some messages will be printed in terminal
