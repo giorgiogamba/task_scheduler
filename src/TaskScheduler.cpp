@@ -11,10 +11,9 @@ TaskScheduler::TaskScheduler(const int NumTasks)
     for (int i = 0; i < NumTasks; ++i)
     {
         const std::function<void*()> Operation = std::bind(&TaskScheduler::TestFunction, this);
-
         std::thread Operator(Operation);
 
-	// Threads are not copyable, only moveble
+	    // Threads are not copyable, only moveble
         Operators.emplace(Operator.get_id(), std::move(Operator));
     }
 }
